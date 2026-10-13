@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Motion flyers for Chicago shops, promoters and artists. Print-ready flyer, animated version, three sizes. From $250.">
+<meta property="og:title" content="DSB Labs Motion">
+<meta property="og:description" content="Flyers that move. Motion flyers for Chicago shops, promoters and artists. From $250.">
+<meta property="og:image" content="media/walls-by-disk.jpg">
+<title>DSB Labs Motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Layout: one night-wall page. Dark street surface, a xerox-paper price board, a wheatpaste wall of samples. */
+:root{
+  --ink:#0f0e0d; --ink-2:#1a1816; --chalk:#f3ede3; --muted:#a8a197;
+  --paper:#ebe3d3; --paper-ink:#1b1916; --red:#e3191b; --blue:#2f63e0;
+  --display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --body:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --mono:'Space Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--chalk);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.label{font:700 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.92;letter-spacing:.005em}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:56px;height:56px;object-fit:cover;border-radius:6px}
+.brand span{font:800 22px/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 15px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  background:var(--red);color:#fff;padding:14px 20px;border:0;cursor:pointer;box-shadow:5px 5px 0 var(--chalk);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--chalk)}
+.btn.ghost{background:transparent;color:var(--chalk);box-shadow:none;border:2px solid var(--chalk)}
+.btn.ghost:hover{background:var(--chalk);color:var(--ink);transform:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(24px,6vw,72px) clamp(40px,7vw,96px)}
+.hero h1{font-size:clamp(64px,11vw,148px);font-weight:900;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red);display:block}
+.hero p.lead{font-size:clamp(18px,1.6vw,21px);max-width:34em;color:#d9d2c7;margin:24px 0 28px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;color:var(--muted)}
+.hero .meta b{color:var(--chalk);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px}
+.phone{justify-self:center;width:min(100%,330px);aspect-ratio:9/16;border:10px solid #232120;border-radius:34px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 2px #3a3633;rotate:2deg}
+.phone video{width:100%;height:100%;object-fit:cover}
+
+/* stripe divider: the street-flag stripe */
+.stripe{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 48px,var(--chalk) 48px 96px)}
+
+/* samples wall */
+.wall{background:#151311 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .48  0 0 0 0 .45  0 0 0 .18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");padding-block:clamp(48px,7vw,96px)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head h2{font-size:clamp(44px,6vw,80px);font-weight:900;text-transform:uppercase}
+.sec-head p{max-width:30em;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px) clamp(14px,2.4vw,32px)}
+.flyer{margin:0;position:relative}
+.flyer:nth-child(odd) .paste{rotate:-1.2deg}.flyer:nth-child(even) .paste{rotate:1deg}
+.paste{position:relative;aspect-ratio:9/16;background:#000;box-shadow:0 14px 30px rgba(0,0,0,.55)}
+.paste video{width:100%;height:100%;object-fit:cover}
+.paste::before,.paste::after{content:'';position:absolute;width:72px;height:22px;background:rgba(236,228,212,.82);z-index:2;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.paste::before{top:-9px;left:14px;rotate:-8deg}.paste::after{top:-9px;right:14px;rotate:7deg}
+.flyer figcaption{margin-top:16px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;align-items:baseline}
+.flyer figcaption strong{font:800 22px/1.1 var(--display);letter-spacing:.02em;text-transform:uppercase}
+.chip{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:5px 8px;border:1.5px solid currentColor;white-space:nowrap}
+.chip.real{color:#7fe0a0}.chip.concept{color:var(--muted)}
+.flyer figcaption span.d{flex-basis:100%;color:var(--muted);font-size:15px}
+
+.sizes{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(20px,4vw,48px);align-items:center}
+.sizes h3{font-size:clamp(36px,4.4vw,56px);text-transform:uppercase;font-weight:900}
+.sizes p{color:var(--muted);margin:14px 0 0}
+.sizes .row{display:flex;gap:16px;align-items:flex-end;min-width:0}
+.sizes .row figure{margin:0;min-width:0}
+.sizes .row video{height:auto;box-shadow:0 10px 24px rgba(0,0,0,.5)}
+.sizes .row figcaption{margin-top:8px;color:var(--muted)}
+.sizes .r916{flex:9}.sizes .r45{flex:12.5}.sizes .r169{flex:28.4}
+
+/* price board: photocopied paper */
+.board{background:var(--paper);color:var(--paper-ink);padding-block:clamp(48px,7vw,96px);position:relative}
+.board::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(0,0,0,.09) 1px,transparent 1.4px);background-size:6px 6px}
+.board .wrap{position:relative}
+.board .sec-head p{color:#5d5750}
+.prices{list-style:none;margin:0;padding:0;border-top:3px solid var(--paper-ink)}
+.prices li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding-block:22px;border-bottom:1.5px solid rgba(27,25,22,.35)}
+.prices h3{font-size:clamp(28px,3.2vw,40px);font-weight:900;text-transform:uppercase}
+.prices .what{grid-column:1;color:#4a453f;max-width:46em;margin:0}
+.prices .price{grid-column:2;grid-row:1 / span 2;text-align:right;font:700 clamp(22px,2.4vw,30px)/1.1 var(--mono);white-space:nowrap}
+.prices .price small{display:block;font:400 13px/1.4 var(--mono);color:#5d5750;margin-top:6px;white-space:normal;max-width:16em;margin-left:auto}
+.prices li.feature{background:var(--paper-ink);color:var(--paper);padding-inline:clamp(12px,3vw,20px);margin-inline:calc(-1 * clamp(12px,3vw,20px));border-bottom:0}
+.prices li.feature .what,.prices li.feature .price small{color:#cfc6b6}
+.prices li.feature .price{color:#ff6b5a}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 32px;margin-top:36px}
+.terms div{min-width:0}
+.terms b{display:block;font:700 13px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.terms p{margin:0;color:#4a453f;font-size:16px}
+
+/* steps */
+.how{padding-block:clamp(48px,7vw,96px)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+.steps li{counter-increment:s;border-top:3px solid var(--chalk);padding-top:16px;min-width:0}
+.steps li::before{content:counter(s);display:block;font:900 64px/1 var(--display);color:var(--red);margin-bottom:8px}
+.steps b{display:block;font:800 24px/1.1 var(--display);text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(40px,6vw,80px)}
+.about img{width:100%;aspect-ratio:1;object-fit:cover}
+.about h2{font-size:clamp(40px,5vw,64px);font-weight:900;text-transform:uppercase;margin-bottom:18px}
+.about p{max-width:36em;color:#d9d2c7}
+.about .fine{font-size:14px;color:var(--muted)}
+
+/* book */
+.book{background:var(--red);color:#fff;padding-block:clamp(48px,7vw,96px)}
+.book .inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,64px);align-items:start}
+.book h2{font-size:clamp(56px,9vw,120px);font-weight:900;text-transform:uppercase}
+.book p{max-width:32em}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 8px}
+.mail code{font:700 clamp(18px,2.6vw,28px)/1.2 var(--mono);background:#fff;color:var(--ink);padding:12px 16px;user-select:all;overflow-wrap:anywhere}
+.mail button{font:700 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;border:0;padding:16px 18px;cursor:pointer}
+.book .btn{background:var(--ink);box-shadow:5px 5px 0 #fff}
+.send{background:rgba(0,0,0,.18);padding:24px 26px}
+.send h3{font-size:30px;text-transform:uppercase;margin-bottom:12px}
+.send ul{margin:0;padding-left:20px}
+.send li{margin-bottom:6px}
+.status{min-height:1.4em;font:400 14px var(--mono)}
+footer{padding-block:28px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+@media (max-width:900px){
+  .hero,.about,.book .inner,.sizes{grid-template-columns:minmax(0,1fr)}
+  .phone{rotate:0deg;width:min(100%,300px)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .terms{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .prices li{grid-template-columns:minmax(0,1fr)}
+  .prices .price{grid-column:1;grid-row:auto;text-align:left}
+  .prices .price small{margin-left:0}
+  .sizes .row{flex-wrap:wrap}
+  .sizes .r169{flex-basis:100%}
+  .brand span{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.btn:hover{transition:none}}
+</style>
+
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="#top" aria-label="DSB Labs home"><img src="media/logo.jpg" alt="DSB Labs logo"><span>DSB Labs</span></a>
+  <a class="btn" href="#book">Book a pack</a>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <p class="label" style="color:var(--muted)">Motion design · Chicago</p>
+      <h1>Flyers <em>that move.</em></h1>
+      <p class="lead">Motion flyers for Chicago shops, promoters and artists. You get a print-ready flyer, a 10–15 second animated version, and every size your socials need. From $250.</p>
+      <div class="cta-row">
+        <a class="btn" href="#book">Book a pack</a>
+        <a class="btn ghost" href="#work">See the work</a>
+      </div>
+      <div class="meta label"><span><b>3–5 day</b> turnaround</span><span><b>3 sizes</b> per flyer</span><span><b>2 rounds</b> of changes</span></div>
+    </div>
+    <div class="phone"><video src="media/walls-by-disk.mp4" poster="media/walls-by-disk.jpg" autoplay muted loop playsinline aria-label="Sample: Walls by DISK motion flyer"></video></div>
+  </section>
+
+  <div class="stripe" aria-hidden="true"></div>
+
+  <section class="wall" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The wall</h2>
+        <p>Six samples, each made the way a client job is made. Pieces marked concept use made-up businesses to show what your flyer could look like.</p>
+      </div>
+      <div class="grid">
+        <figure class="flyer"><div class="paste"><video src="media/walls-by-disk.mp4" poster="media/walls-by-disk.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+          <figcaption><strong>Walls by DISK</strong><span class="chip real">DSB Labs</span><span class="d">Mural promo built from an original DISK piece.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/corte-limpio.mp4" poster="media/corte-limpio.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+          <figcaption><strong>Corte Limpio</strong><span class="chip concept">Concept</span><span class="d">Barbershop holiday prices, photocopy style.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/bloque-boricua.mp4" poster="media/bloque-boricua.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+          <figcaption><strong>Bloque Boricua</strong><span class="chip concept">Concept</span><span class="d">Block party flyer cut to a 120 bpm beat.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/panaderia-ceiba.mp4" poster="media/panaderia-ceiba.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+          <figcaption><strong>Panadería Ceiba</strong><span class="chip concept">Concept</span><span class="d">Holiday kickoff sale for a neighborhood bakery.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/osiris-issue0.mp4" poster="media/osiris-issue0.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+          <figcaption><strong>OSIRIS.EXE Issue 0</strong><span class="chip real">DSB Labs</span><span class="d">Release teaser for our own comic series.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/osiris-loop.mp4" poster="media/osiris-loop.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+          <figcaption><strong>Musician loop</strong><span class="chip real">DSB Labs</span><span class="d">An 8-second seamless loop from cover art, sized for Spotify Canvas.</span></figcaption></figure>
+      </div>
+
+      <div class="sizes">
+        <div>
+          <h3>One flyer, three sizes</h3>
+          <p>Every pack ships as a story or reel (9:16), a feed post (4:5) and a widescreen version for screens, YouTube or your website (16:9).</p>
+        </div>
+        <div class="row">
+          <figure class="r916"><video src="media/panaderia-ceiba.mp4" poster="media/panaderia-ceiba.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption class="label">9:16</figcaption></figure>
+          <figure class="r45"><video src="media/panaderia-ceiba-4x5.mp4" poster="media/panaderia-ceiba-4x5.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption class="label">4:5</figcaption></figure>
+          <figure class="r169"><video src="media/panaderia-ceiba-16x9.mp4" poster="media/panaderia-ceiba-16x9.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption class="label">16:9</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="board" id="prices">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Prices</h2>
+        <p>Flat prices, no surprises. The first five Motion Flyer Pack clients get the intro price.</p>
+      </div>
+      <ul class="prices">
+        <li class="feature"><h3>Motion Flyer Pack</h3><p class="what">Print-ready flyer, a 10–15 second animated version, three sizes (9:16, 4:5, 16:9), two rounds of changes.</p><div class="price">$250<small>first 5 clients, then $350 · 3–5 days</small></div></li>
+        <li><h3>Animate My Flyer</h3><p class="what">Already have a flyer? We bring it to life in three sizes.</p><div class="price">$125<small>2–3 days</small></div></li>
+        <li><h3>Musician Loop</h3><p class="what">An 8-second looping video from your cover art, for Spotify Canvas or socials.</p><div class="price">$150<small>3 days</small></div></li>
+        <li><h3>Monthly Content Pack</h3><p class="what">8 animated posts and 4 static posts a month, planned around your calendar.</p><div class="price">$600/mo<small>month to month</small></div></li>
+        <li><h3>Monthly Content Pack Plus</h3><p class="what">12 animated posts plus one event or holiday flyer a month.</p><div class="price">$900/mo<small>month to month</small></div></li>
+        <li><h3>Brand Starter Kit</h3><p class="what">Logo, color palette, menu or sign design, and five social templates. Two rounds of changes.</p><div class="price">$900<small>2–3 weeks</small></div></li>
+        <li><h3>Indoor Mural by DISK</h3><p class="what">Your design mocked onto a photo of your wall first, then painted by hand.</p><div class="price">$15–20/sq ft<small>quoted per wall · 50% deposit</small></div></li>
+      </ul>
+      <div class="terms">
+        <div><b>Paying</b><p>Jobs under $400 are paid upfront. Bigger jobs take a 50% deposit. Monthly packs are billed at the start of each month.</p></div>
+        <div><b>Changes</b><p>Two rounds of changes are included. Extra rounds are quoted before we start.</p></div>
+        <div><b>Tools</b><p>We use AI tools in production. Art direction, design and final polish are done by hand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap how" id="how">
+    <div class="sec-head"><h2>How it works</h2><p>Most packs are done in under a week.</p></div>
+    <ol class="steps">
+      <li><b>Send the details</b><p>Your text, date, logo and any photos. A phone photo of an old flyer works.</p></li>
+      <li><b>Pay and get on the calendar</b><p>You get a secure card payment link and a delivery date.</p></li>
+      <li><b>See a first draft</b><p>Within 3 days. Tell us what to change, twice if you need to.</p></li>
+      <li><b>Get your files</b><p>MP4s in three sizes plus a print-ready PDF, ready to post.</p></li>
+    </ol>
+  </section>
+
+  <section class="wrap about" id="about">
+    <img src="media/disk-archive.jpg" alt="DISK graffiti piece with a Puerto Rican flag over Division Street">
+    <div>
+      <p class="label" style="color:var(--muted)">About</p>
+      <h2>Rooted in Humboldt Park</h2>
+      <p>DSB Labs is the studio of Frankie Sanchez, a Chicago-born, Humboldt Park-raised graffiti writer and designer who paints as DISK. The studio makes flyers, motion graphics, comics and walls for the neighborhood and anyone who wants its look.</p>
+      <p class="fine">Our own projects include OSIRIS.EXE, a comic series rooted in Humboldt Park.</p>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap inner">
+      <div>
+        <h2>Book a pack</h2>
+        <p>Email us with what you need and your date, and we'll confirm the price and delivery day.</p>
+        <div class="mail"><code id="addr">osirisdsb@gmail.com</code><button type="button" id="copy">Copy</button></div>
+        <p class="status" id="status" role="status"></p>
+        <a class="btn" href="mailto:osirisdsb@gmail.com?subject=Motion%20Flyer%20Pack">Email DSB Labs</a>
+      </div>
+      <div class="send">
+        <h3>What to send</h3>
+        <ul>
+          <li>Business or event name</li>
+          <li>Date, time and place</li>
+          <li>The words that must be on it (prices, deals, phone)</li>
+          <li>Your logo and 1–3 photos, if you have them</li>
+          <li>Which package you want</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 DSB Labs · Chicago</span><span>Design · Sculpt · Build</span></div></footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'),addr=document.getElementById('addr'),st=document.getElementById('status');
+  btn.addEventListener('click',function(){
+    var text=addr.textContent;
+    function selectIt(){var r=document.createRange();r.selectNodeContents(addr);var s=window.getSelection();s.removeAllRanges();s.addRange(r);st.textContent='Selected. Press Ctrl+C or Cmd+C to copy.';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){st.textContent='Copied: '+text;},selectIt);
+    }else{selectIt();}
+  });
+  // pause off-screen videos to save battery
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{rootMargin:'200px'});
+    document.querySelectorAll('video').forEach(function(v){io.observe(v);});
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -92,8 +92,11 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.92;l
 .prices li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding-block:22px;border-bottom:1.5px solid rgba(27,25,22,.35)}
 .prices h3{font-size:clamp(28px,3.2vw,40px);font-weight:900;text-transform:uppercase}
 .prices .what{grid-column:1;color:#4a453f;max-width:46em;margin:0}
-.prices .price{grid-column:2;grid-row:1 / span 2;text-align:right;font:700 clamp(22px,2.4vw,30px)/1.1 var(--mono);white-space:nowrap}
+.prices .price{grid-column:2;grid-row:1 / span 3;text-align:right;font:700 clamp(22px,2.4vw,30px)/1.1 var(--mono);white-space:nowrap}
 .prices .price small{display:block;font:400 13px/1.4 var(--mono);color:#5d5750;margin-top:6px;white-space:normal;max-width:16em;margin-left:auto}
+.prices .pay{grid-column:1;justify-self:start;margin-top:10px;font:700 13px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:var(--red);color:#fff;padding:12px 16px;box-shadow:4px 4px 0 var(--paper-ink);transition:transform .15s,box-shadow .15s}
+.prices .pay:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--paper-ink)}
+.prices li.feature .pay{box-shadow:4px 4px 0 var(--paper)}
 .prices li.feature{background:var(--paper-ink);color:var(--paper);padding-inline:clamp(12px,3vw,20px);margin-inline:calc(-1 * clamp(12px,3vw,20px));border-bottom:0}
 .prices li.feature .what,.prices li.feature .price small{color:#cfc6b6}
 .prices li.feature .price{color:#ff6b5a}
@@ -144,6 +147,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 @media (max-width:520px){
   .prices li{grid-template-columns:minmax(0,1fr)}
   .prices .price{grid-column:1;grid-row:auto;text-align:left}
+  .prices .pay{grid-row:auto;order:2;margin-top:4px}
   .prices .price small{margin-left:0}
   .sizes .row{flex-wrap:wrap}
   .sizes .r169{flex-basis:100%}
@@ -218,9 +222,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <p>Flat prices, no surprises. The first five Motion Flyer Pack clients get the intro price.</p>
       </div>
       <ul class="prices">
-        <li class="feature"><h3>Motion Flyer Pack</h3><p class="what">Print-ready flyer, a 10–15 second animated version, three sizes (9:16, 4:5, 16:9), two rounds of changes.</p><div class="price">$250<small>first 5 clients, then $350 · 3–5 days</small></div></li>
-        <li><h3>Animate My Flyer</h3><p class="what">Already have a flyer? We bring it to life in three sizes.</p><div class="price">$125<small>2–3 days</small></div></li>
-        <li><h3>Musician Loop</h3><p class="what">An 8-second looping video from your cover art, for Spotify Canvas or socials.</p><div class="price">$150<small>3 days</small></div></li>
+        <li class="feature"><h3>Motion Flyer Pack</h3><p class="what">Print-ready flyer, a 10–15 second animated version, three sizes (9:16, 4:5, 16:9), two rounds of changes.</p><a class="pay" href="https://buy.stripe.com/dRmaEQeSK2Xve4r1AK1sQ00" target="_blank" rel="noopener">Pay $250 →</a><div class="price">$250<small>first 5 clients, then $350 · 3–5 days</small></div></li>
+        <li><h3>Animate My Flyer</h3><p class="what">Already have a flyer? We bring it to life in three sizes.</p><a class="pay" href="https://buy.stripe.com/28EdR2h0S69Hgcz6V41sQ02" target="_blank" rel="noopener">Pay $125 →</a><div class="price">$125<small>2–3 days</small></div></li>
+        <li><h3>Musician Loop</h3><p class="what">An 8-second looping video from your cover art, for Spotify Canvas or socials.</p><a class="pay" href="https://buy.stripe.com/00wfZafWO41z8K7a7g1sQ03" target="_blank" rel="noopener">Pay $150 →</a><div class="price">$150<small>3 days</small></div></li>
         <li><h3>Monthly Content Pack</h3><p class="what">8 animated posts and 4 static posts a month, planned around your calendar.</p><div class="price">$600/mo<small>month to month</small></div></li>
         <li><h3>Monthly Content Pack Plus</h3><p class="what">12 animated posts plus one event or holiday flyer a month.</p><div class="price">$900/mo<small>month to month</small></div></li>
         <li><h3>Brand Starter Kit</h3><p class="what">Logo, color palette, menu or sign design, and five social templates. Two rounds of changes.</p><div class="price">$900<small>2–3 weeks</small></div></li>
@@ -238,7 +242,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <div class="sec-head"><h2>How it works</h2><p>Most packs are done in under a week.</p></div>
     <ol class="steps">
       <li><b>Send the details</b><p>Your text, date, logo and any photos. A phone photo of an old flyer works.</p></li>
-      <li><b>Pay and get on the calendar</b><p>You get a secure card payment link and a delivery date.</p></li>
+      <li><b>Pay and get on the calendar</b><p>Pay by card with the button next to your package, or we send you a secure link with your delivery date.</p></li>
       <li><b>See a first draft</b><p>Within 3 days. Tell us what to change, twice if you need to.</p></li>
       <li><b>Get your files</b><p>MP4s in three sizes plus a print-ready PDF, ready to post.</p></li>
     </ol>

@@ -139,11 +139,27 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.92;l
 footer{padding-block:28px;color:var(--muted);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
+/* portfolio: case file for a spec pitch */
+.top nav{display:flex;gap:clamp(14px,2.4vw,28px);margin-left:auto;margin-right:clamp(8px,2vw,20px)}
+.top nav a{font:700 13px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:8px 0}
+.top nav a:hover{color:var(--chalk)}
+.case{background:var(--ink-2);padding-block:clamp(48px,7vw,96px);border-top:1px solid #2c2926}
+.case-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(32px,4.5vw,56px)}
+.case h2{font-size:clamp(52px,7.5vw,104px);font-weight:900;text-transform:uppercase}
+.case .lead{color:#d9d2c7;max-width:34em;margin:18px 0 0}
+.facts{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 18px;border-top:3px solid var(--chalk);padding-top:16px}
+.facts dt{font:700 12px/1.7 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.facts dd{margin:0;font-size:16px}
+.chip.spec{color:#ffb347}
+.case-foot{margin-top:clamp(36px,4.5vw,56px);display:flex;flex-wrap:wrap;gap:18px 32px;align-items:center;justify-content:space-between;border-top:1.5px solid #3a3632;padding-top:22px}
+.case-foot p{margin:0;color:var(--muted);font-size:15px;max-width:46em}
+
 @media (max-width:900px){
-  .hero,.about,.book .inner,.sizes{grid-template-columns:minmax(0,1fr)}
+  .hero,.about,.book .inner,.sizes,.case-head{grid-template-columns:minmax(0,1fr)}
   .phone{rotate:0deg;width:min(100%,300px)}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case .grid .flyer:last-child:nth-child(odd){grid-column:1 / -1;justify-self:center;width:calc(50% - clamp(7px,1.2vw,16px))}
   .terms{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:520px){
@@ -154,6 +170,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .sizes .row{flex-wrap:wrap}
   .sizes .r169{flex-basis:100%}
   .brand span{display:none}
+  .top nav{display:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.btn:hover{transition:none}}
 </style>
@@ -162,6 +179,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <body>
 <header class="wrap top">
   <a class="brand" href="#top" aria-label="DSB Labs home"><img src="media/logo.jpg" alt="DSB Labs logo"><span>DSB Labs</span></a>
+  <nav aria-label="Sections"><a href="#work">Work</a><a href="#portfolio">Portfolio</a><a href="#prices">Prices</a></nav>
   <a class="btn" href="#book">Book a pack</a>
 </header>
 
@@ -213,6 +231,36 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <figure class="r45"><video src="media/panaderia-ceiba-4x5.mp4" poster="media/panaderia-ceiba-4x5.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption class="label">4:5</figcaption></figure>
           <figure class="r169"><video src="media/panaderia-ceiba-16x9.mp4" poster="media/panaderia-ceiba-16x9.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption class="label">16:9</figcaption></figure>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case" id="portfolio">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <p class="label" style="color:var(--muted)">Portfolio · Spec pitch 001</p>
+          <h2>Bellona's Pizza</h2>
+          <p class="lead">Three directions for an Albany Park pizzeria, one flyer in three moods. Every word on them comes from the shop's own menu site: since 2001, voted #1 pizza in Albany Park, tavern thin, stuffed and pan. No made-up prices or deals.</p>
+        </div>
+        <dl class="facts">
+          <dt>Shop</dt><dd>Bellona's Pizza, 3447 W Montrose Ave</dd>
+          <dt>Type</dt><dd>Spec work, made on our own to pitch</dd>
+          <dt>Format</dt><dd>10-second motion flyer, 9:16</dd>
+          <dt>Options</dt><dd>Three directions; the shop picks one</dd>
+        </dl>
+      </div>
+      <div class="grid">
+        <figure class="flyer"><div class="paste"><video src="media/bellonas-neon.mp4" poster="media/bellonas-neon.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Neon Night: neon signs flicker on over a brick wall"></video></div>
+          <figcaption><strong>A · Neon Night</strong><span class="chip spec">Spec</span><span class="d">Neon tubes flicker on one by one over a brick wall. Built for late-night stories.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/bellonas-tablecloth.mp4" poster="media/bellonas-tablecloth.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Red Tablecloth: a tavern-cut pizza is served and a square lifts out"></video></div>
+          <figcaption><strong>B · Red Tablecloth</strong><span class="chip spec">Spec</span><span class="d">The pie is served, cut in squares, and one square lifts out with the cheese pull.</span></figcaption></figure>
+        <figure class="flyer"><div class="paste"><video src="media/bellonas-chicago.mp4" poster="media/bellonas-chicago.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Chicago Style: flag stripes and stars with cutaways of thin, stuffed and pan pizza"></video></div>
+          <figcaption><strong>C · Chicago Style</strong><span class="chip spec">Spec</span><span class="d">Flag stripes and stars, with cutaways of all three styles sliding in.</span></figcaption></figure>
+      </div>
+      <div class="case-foot">
+        <p>Spec work: Bellona's Pizza did not commission or approve these, and the name and details belong to them. Shown to demonstrate what a Motion Flyer Pack looks like for a real neighborhood shop.</p>
+        <a class="btn ghost" href="#book">Want this for your shop?</a>
       </div>
     </div>
   </section>

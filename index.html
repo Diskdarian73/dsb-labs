@@ -96,6 +96,8 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.92;l
 .prices .price small{display:block;font:400 13px/1.4 var(--mono);color:#5d5750;margin-top:6px;white-space:normal;max-width:16em;margin-left:auto}
 .prices .pay{grid-column:1;justify-self:start;margin-top:10px;font:700 13px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:var(--red);color:#fff;padding:12px 16px;box-shadow:4px 4px 0 var(--paper-ink);transition:transform .15s,box-shadow .15s}
 .prices .pay:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--paper-ink)}
+.prices .pay.quote{background:transparent;color:var(--paper-ink);border:2px solid var(--paper-ink);box-shadow:none}
+.prices .pay.quote:hover{background:var(--paper-ink);color:var(--paper);transform:none}
 .prices li.feature .pay{box-shadow:4px 4px 0 var(--paper)}
 .prices li.feature{background:var(--paper-ink);color:var(--paper);padding-inline:clamp(12px,3vw,20px);margin-inline:calc(-1 * clamp(12px,3vw,20px));border-bottom:0}
 .prices li.feature .what,.prices li.feature .price small{color:#cfc6b6}
@@ -225,13 +227,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <li class="feature"><h3>Motion Flyer Pack</h3><p class="what">Print-ready flyer, a 10–15 second animated version, three sizes (9:16, 4:5, 16:9), two rounds of changes.</p><a class="pay" href="https://buy.stripe.com/dRmaEQeSK2Xve4r1AK1sQ00" target="_blank" rel="noopener">Pay $250 →</a><div class="price">$250<small>first 5 clients, then $350 · 3–5 days</small></div></li>
         <li><h3>Animate My Flyer</h3><p class="what">Already have a flyer? We bring it to life in three sizes.</p><a class="pay" href="https://buy.stripe.com/28EdR2h0S69Hgcz6V41sQ02" target="_blank" rel="noopener">Pay $125 →</a><div class="price">$125<small>2–3 days</small></div></li>
         <li><h3>Musician Loop</h3><p class="what">An 8-second looping video from your cover art, for Spotify Canvas or socials.</p><a class="pay" href="https://buy.stripe.com/00wfZafWO41z8K7a7g1sQ03" target="_blank" rel="noopener">Pay $150 →</a><div class="price">$150<small>3 days</small></div></li>
-        <li><h3>Monthly Content Pack</h3><p class="what">8 animated posts and 4 static posts a month, planned around your calendar.</p><div class="price">$600/mo<small>month to month</small></div></li>
-        <li><h3>Monthly Content Pack Plus</h3><p class="what">12 animated posts plus one event or holiday flyer a month.</p><div class="price">$900/mo<small>month to month</small></div></li>
-        <li><h3>Brand Starter Kit</h3><p class="what">Logo, color palette, menu or sign design, and five social templates. Two rounds of changes.</p><div class="price">$900<small>2–3 weeks</small></div></li>
-        <li><h3>Indoor Mural</h3><p class="what">Your design mocked onto a photo of your wall first, then painted by hand.</p><div class="price">$15–20/sq ft<small>quoted per wall · 50% deposit</small></div></li>
+        <li><h3>Monthly Content Pack</h3><p class="what">8 animated posts and 4 static posts a month, planned around your calendar.</p><a class="pay" href="https://buy.stripe.com/5kQ28kfWObu1d0nbbk1sQ05" target="_blank" rel="noopener">Subscribe $600/mo →</a><div class="price">$600/mo<small>month to month</small></div></li>
+        <li><h3>Monthly Content Pack Plus</h3><p class="what">12 animated posts plus one event or holiday flyer a month.</p><a class="pay" href="https://buy.stripe.com/3cI14gh0S0Pn9ObgvE1sQ06" target="_blank" rel="noopener">Subscribe $900/mo →</a><div class="price">$900/mo<small>month to month</small></div></li>
+        <li><h3>Brand Starter Kit</h3><p class="what">Logo, color palette, menu or sign design, and five social templates. Two rounds of changes.</p><a class="pay" href="https://buy.stripe.com/eVq14g6me0Pn8K7cfo1sQ04" target="_blank" rel="noopener">Pay $450 deposit →</a><div class="price">$900<small>$450 deposit, rest on delivery · 2–3 weeks</small></div></li>
+        <li><h3>Indoor Mural</h3><p class="what">Your design mocked onto a photo of your wall first, then painted by hand.</p><a class="pay quote" href="#book">Get a quote →</a><div class="price">$15–20/sq ft<small>quoted per wall · 50% deposit</small></div></li>
       </ul>
       <div class="terms">
-        <div><b>Paying</b><p>Jobs under $400 are paid upfront. Bigger jobs take a 50% deposit. Monthly packs are billed at the start of each month.</p></div>
+        <div><b>Paying</b><p>Card, Apple Pay and more through Stripe. Jobs under $400 are paid upfront; bigger jobs take a 50% deposit. Monthly packs renew each month until you email us to stop.</p></div>
         <div><b>Changes</b><p>Two rounds of changes are included. Extra rounds are quoted before we start.</p></div>
         <div><b>Tools</b><p>We use AI tools in production. Art direction, design and final polish are done by hand.</p></div>
       </div>
